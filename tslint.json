@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "tslint-config-airbnb",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "ter-prefer-arrow-callback": [false]
+  }
+}
