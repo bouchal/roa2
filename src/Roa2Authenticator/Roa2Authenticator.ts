@@ -19,10 +19,10 @@ interface AuthConfig {
 }
 
 export default class Roa2Authenticator {
-    protected wso2TokenFactory: Roa2TokenFactory
+    protected roa2TokenFactory: Roa2TokenFactory
 
     constructor(protected authConfig: AuthConfig, protected clientConfig: ClientConfig) {
-        this.wso2TokenFactory = new Roa2TokenFactory()
+        this.roa2TokenFactory = new Roa2TokenFactory()
     }
 
     /**
@@ -89,7 +89,7 @@ export default class Roa2Authenticator {
         const authResponse = await this.sendAuthRequest(formData)
 
         if (authResponse.status === 200) {
-            return this.wso2TokenFactory.createFromResponseJson(authResponse.data)
+            return this.roa2TokenFactory.createFromResponseJson(authResponse.data)
         }
 
         throw new AuthenticationError(authResponse.data.error, authResponse.data.error_description)

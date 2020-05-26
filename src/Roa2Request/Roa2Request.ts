@@ -31,7 +31,7 @@ export default class Roa2Request {
     public readonly interceptors: Interceptors
 
     constructor(
-        protected apiGatewayUrl: string,
+        protected baseUrl: string,
         protected tokenManager?: TokenManager,
         defaultOptions?: Roa2RequestOptions,
         components?: Optional<Roa2RequestComponents>
@@ -68,7 +68,7 @@ export default class Roa2Request {
             const options: AxiosRequestConfig = deepmerge({
                 url,
                 method,
-                baseURL: this.apiGatewayUrl,
+                baseURL: this.baseUrl,
                 headers: {
                     ...(authorizationHeader && {Authorization: authorizationHeader})
                 },
@@ -211,7 +211,7 @@ export default class Roa2Request {
         const mergedOptions = deepmerge(this.defaultOptions, options)
 
         return new Roa2Request(
-            this.apiGatewayUrl,
+            this.baseUrl,
             this.tokenManager,
             mergedOptions,
             this.components

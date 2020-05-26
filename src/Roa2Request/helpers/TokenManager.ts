@@ -7,6 +7,7 @@ import TokenCodeConfig from "../models/TokenCodeConfig"
 import UnknownTokenConfigError from "../errors/UnknownTokenConfigError"
 import MemoryTokenStorage from "../storages/MemoryTokenStorage"
 import Roa2Authenticator, {Roa2Token} from "../../Roa2Authenticator";
+import LocalStorageTokenStorage from "../storages/LocalStorageTokenStorage";
 
 export default class TokenManager {
     protected tokenLoadingPromise?: Promise<Roa2Token>
@@ -14,7 +15,10 @@ export default class TokenManager {
     constructor(
         protected readonly authenticator: Roa2Authenticator,
         protected tokenConfig: TokenConfig = new TokenClientCredentialsConfig(),
-        protected readonly tokenStorage: TokenStorage = new MemoryTokenStorage()
+        protected readonly tokenStorage: TokenStorage
+            = typeof window === 'undefined'
+            ? new MemoryTokenStorage()
+            : new LocalStorageTokenStorage()
     ) {
 
     }
