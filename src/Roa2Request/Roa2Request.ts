@@ -52,7 +52,7 @@ export default class Roa2Request {
         this.interceptors = this.axios.interceptors
     }
 
-    protected async runRequest(method: string, path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
+    protected async runRequest<TBody = any>(method: string, path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
         const mergedOptions = deepmerge(this.defaultOptions, options || {})
 
         const url = (mergedOptions.pathPrefix || '') + path
@@ -101,110 +101,110 @@ export default class Roa2Request {
         return doRequest()
     }
 
-    public get<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('get', path, parameters, body, options)
+    public get<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('get', path, parameters, body, options)
     }
 
-    public post<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('post', path, parameters, body, options)
+    public post<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('post', path, parameters, body, options)
     }
 
-    public put<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('put', path, parameters, body, options)
+    public put<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('put', path, parameters, body, options)
     }
 
-    public head<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('head', path, parameters, body, options)
+    public head<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('head', path, parameters, body, options)
     }
 
-    public delete<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('delete', path, parameters, body, options)
+    public delete<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('delete', path, parameters, body, options)
     }
 
-    public options<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('options', path, parameters, body, options)
+    public options<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('options', path, parameters, body, options)
     }
 
-    public trace<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('trace', path, parameters, body, options)
+    public trace<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('trace', path, parameters, body, options)
     }
 
-    public copy<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('copy', path, parameters, body, options)
+    public copy<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('copy', path, parameters, body, options)
     }
 
-    public lock<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('lock', path, parameters, body, options)
+    public lock<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('lock', path, parameters, body, options)
     }
 
-    public mkcol<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('mkcol', path, parameters, body, options)
+    public mkcol<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('mkcol', path, parameters, body, options)
     }
 
-    public move<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('move', path, parameters, body, options)
+    public move<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('move', path, parameters, body, options)
     }
 
-    public purge<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('purge', path, parameters, body, options)
+    public purge<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('purge', path, parameters, body, options)
     }
 
-    public propfind<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('propfind', path, parameters, body, options)
+    public propfind<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('propfind', path, parameters, body, options)
     }
 
-    public proppatch<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('proppatch', path, parameters, body, options)
+    public proppatch<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('proppatch', path, parameters, body, options)
     }
 
-    public unlock<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('unlock', path, parameters, body, options)
+    public unlock<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('unlock', path, parameters, body, options)
     }
 
-    public report<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('report', path, parameters, body, options)
+    public report<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('report', path, parameters, body, options)
     }
 
-    public mkactivity<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('mkactivity', path, parameters, body, options)
+    public mkactivity<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('mkactivity', path, parameters, body, options)
     }
 
-    public checkout<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('checkout', path, parameters, body, options)
+    public checkout<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('checkout', path, parameters, body, options)
     }
 
-    public merge<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('merge', path, parameters, body, options)
+    public merge<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('merge', path, parameters, body, options)
     }
 
     // tslint:disable-next-line
-    public 'm-search'<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('m-search', path, parameters, body, options)
+    public 'm-search'<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('m-search', path, parameters, body, options)
     }
 
-    public notify<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('notify', path, parameters, body, options)
+    public notify<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('notify', path, parameters, body, options)
     }
 
-    public subscribe<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('subscribe', path, parameters, body, options)
+    public subscribe<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('subscribe', path, parameters, body, options)
     }
 
-    public unsubscribe<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('unsubscribe', path, parameters, body, options)
+    public unsubscribe<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('unsubscribe', path, parameters, body, options)
     }
 
-    public patch<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('patch', path, parameters, body, options)
+    public patch<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('patch', path, parameters, body, options)
     }
 
-    public search<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('search', path, parameters, body, options)
+    public search<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('search', path, parameters, body, options)
     }
 
     /* istanbul ignore next */
-    public connect<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response> {
-        return this.runRequest('connect', path, parameters, body, options)
+    public connect<TBody = any>(path: string, parameters?: object | null, body?: any, options?: Roa2RequestOptions): Promise<Roa2Response<TBody>> {
+        return this.runRequest<TBody>('connect', path, parameters, body, options)
     }
 
     public wrap(options: Roa2RequestOptions): Roa2Request {
