@@ -13,6 +13,7 @@ import TokenCodeConfig from "./models/TokenCodeConfig"
 import MemoryTokenStorage from "./storages/MemoryTokenStorage"
 import TokenManager from "./helpers/TokenManager"
 import Roa2ResponseValidator from "./helpers/Roa2ResponseValidator";
+import LocalStorageTokenStorage from "./storages/LocalStorageTokenStorage"
 
 export {
     Roa2Request,
@@ -30,6 +31,7 @@ export {
     ResponseValidator,
     TokenStorage,
     MemoryTokenStorage,
+    LocalStorageTokenStorage,
     Roa2ResponseValidator
 }
 

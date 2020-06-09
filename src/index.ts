@@ -12,6 +12,7 @@ import Roa2Request, {
     TokenRefreshConfig,
     TokenCodeConfig,
     TokenConfig,
+    LocalStorageTokenStorage,
     InvalidTokenError,
     UnknownTokenConfigError,
     Roa2RequestError,
@@ -43,5 +44,6 @@ export {
     ResponseValidator,
     TokenStorage,
     MemoryTokenStorage,
+    LocalStorageTokenStorage,
     Roa2ResponseValidator
 }
