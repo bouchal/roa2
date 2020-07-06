@@ -20,7 +20,8 @@ import Roa2Request, {
     ResponseValidator,
     TokenStorage,
     MemoryTokenStorage,
-    Roa2ResponseValidator
+    Roa2ResponseValidator,
+    CookieTokenStorage
 } from "./Roa2Request";
 
 export {
@@ -45,5 +46,6 @@ export {
     TokenStorage,
     MemoryTokenStorage,
     LocalStorageTokenStorage,
+    CookieTokenStorage,
     Roa2ResponseValidator
 }

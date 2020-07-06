@@ -14,6 +14,7 @@ import MemoryTokenStorage from "./storages/MemoryTokenStorage"
 import TokenManager from "./helpers/TokenManager"
 import Roa2ResponseValidator from "./helpers/Roa2ResponseValidator";
 import LocalStorageTokenStorage from "./storages/LocalStorageTokenStorage"
+import CookieTokenStorage from "./storages/CookieTokenStorage";
 
 export {
     Roa2Request,
@@ -32,6 +33,7 @@ export {
     TokenStorage,
     MemoryTokenStorage,
     LocalStorageTokenStorage,
+    CookieTokenStorage,
     Roa2ResponseValidator
 }
 
