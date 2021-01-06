@@ -18,7 +18,7 @@
   "dependencies": {
     "@types/crypto-js": "^3.1.46",
     "@types/qs": "^6.9.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "crypto-js": "^4.0.0",
     "deepmerge": "^4.2.2",
     "js-cookie": "^2.2.1",
